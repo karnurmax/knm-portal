@@ -7,7 +7,7 @@
 @section('content')
  <div class="container-fluid">
             <div class="block-header">
-                <h2>DASHBOARD</h2>
+                <h2>ЛИЧНЫЙ КАБИНЕТ АДМИНА</h2>
             </div>
 
             <!-- Widgets -->
@@ -18,7 +18,7 @@
                             <i class="material-icons">playlist_add_check</i>
                         </div>
                         <div class="content">
-                            <div class="text">TOTAL POSTS</div>
+                            <div class="text">ВСЕ ПОСТЫ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $posts->count() }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                             <i class="material-icons">library_books</i>
                         </div>
                         <div class="content">
-                            <div class="text">PENDING POSTS</div>
+                            <div class="text">ПОСТЫ НА УТВЕРЖДЕНИИ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $total_pending_posts }}" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <i class="material-icons">person_add</i>
                         </div>
                         <div class="content">
-                            <div class="text">TOTAL VIEWS</div>
+                            <div class="text">ВСЕ ПРОСМОТРЫ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $all_views }}" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <i class="material-icons">apps</i>
                         </div>
                         <div class="content">
-                            <div class="text">CATEGRORIES</div>
+                            <div class="text">КАТЕГОРИИ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $category_count }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             <i class="material-icons">labels</i>
                         </div>
                         <div class="content">
-                            <div class="text">TAGS</div>
+                            <div class="text">ТЭГИ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $tag_count }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <i class="material-icons">account_circle</i>
                         </div>
                         <div class="content">
-                            <div class="text">TOTAL AUTHORS</div>
+                            <div class="text">ВСЕГО АВТОРОВ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $author_count }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                             <i class="material-icons">fiber_new</i>
                         </div>
                         <div class="content">
-                            <div class="text">TODAY AUTHOR</div>
+                            <div class="text">СЕГОДНЯШНИЕ АВТОРЫ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $new_authors_today }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
         <div class="col-xs-12-3 col-sm-12 col-md-8 col-lg-9">
             <div class="card">
                         <div class="header">
-                            <h2>TOP  POPULAR POSTS</h2>
+                            <h2>ПОПУЛЯРНЫЕ ПОСТЫ</h2>
                              
                         </div>
                         <div class="body">
@@ -117,12 +117,12 @@
                                 <table class="table table-hover dashboard-task-infos">
                                     <thead>
                                         <tr>
-                                            <th>Rank List</th>
-                                            <th>Title</th>
-                                            <th>Views</th>
-                                            <th>Comments </th>
-                                            <th>Status </th>
-                                            <th>Action </th>
+                                            <th>Список по рангу</th>
+                                            <th>Название</th>
+                                            <th>Просмотры</th>
+                                            <th>Комментарии </th>
+                                            <th>Статус </th>
+                                            <th>Действие </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -143,7 +143,7 @@
 
                             </td>
 
-                       <td> <a class="btn btn-sm btn-primary waves-efect" target="_blank" href="{{ route('post.details',$post->slug) }}">View</a>  </td>
+                       <td> <a class="btn btn-sm btn-primary waves-efect" target="_blank" href="{{ route('post.details',$post->slug) }}">ПРОСМОТРЕТЬ</a>  </td>
 
 
                                         </tr>
@@ -170,7 +170,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TOP 10 ACTIVE AUTHOR</h2>
+                            <h2>ТОП 10 АКТИВНЫХ АВТОРОВ</h2>
                              
                         </div>
                         <div class="body">
@@ -178,10 +178,10 @@
                                 <table class="table table-hover dashboard-task-infos">
                                     <thead>
                                         <tr>
-                                            <th>Rank List</th>
-                                            <th>Name</th>
-                                            <th>Posts</th>
-                                            <th>Comments</th>
+                                            <th>Список по рангу</th>
+                                            <th>Имя</th>
+                                            <th>Посты</th>
+                                            <th>Комментарии</th>
                                         </tr>
                                     </thead>
                                     <tbody>

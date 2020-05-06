@@ -14,7 +14,7 @@
             <div class="block-header">
                 <a class = "btn btn-primary waves-effect" href = "{{route('admin.category.create')}}">
                 <i class = "material-icons">add</i>
-                <span>Add new Category</span></a>
+                <span>Добавить новую категорию</span></a>
                 
         @if(session('successMsg'))
         <div class = "alert alert-success" roles = "alert">
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ALL CATEGORIES
+                                ВСЕ КАТЕГОРИИ
                                 <span class = "badge bg-red">{{$categories->count()}}</span>
                             </h2>
 
@@ -45,22 +45,22 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Post Count</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Название</th>
+                                            <th>Количество Постов</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
 
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Post Count</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Название</th>
+                                            <th>Количество Постов</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                    <tbody>

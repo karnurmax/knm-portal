@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ADD NEW TAG
+                                ДОБАВИТЬ НОВЫЙ ТЭГ
 
                             </h2>
 
@@ -42,12 +42,12 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" id="name" class="form-control" name = "name">
-                                        <label class="form-label">Tag Name</label>
+                                        <label class="form-label">Имя Тэга</label>
                                     </div>
                                 </div>
 
-                                <a  class = "btn btn-danger m-t-15 waves-effect" href="{{route('admin.tag.index')}}">BACK</a>
-                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+                                <a  class = "btn btn-danger m-t-15 waves-effect" href="{{route('admin.tag.index')}}">НАЗАД</a>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОТПРАВИТЬ</button>
                             </form>
                         </div>
                     </div>

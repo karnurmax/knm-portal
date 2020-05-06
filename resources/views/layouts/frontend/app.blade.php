@@ -16,11 +16,12 @@
     
     <!-- Stylesheets -->
 
-	<link href="/assets/frontend/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/frontend/css/bootstrap.css" rel="stylesheet">
 
-	<link href="/assets/frontend/css/swiper.css" rel="stylesheet">
+    <link href="/assets/frontend/css/swiper.css" rel="stylesheet">
 
-	<link href="/assets/frontend/css/ionicons.css" rel="stylesheet">
+    <link href="/assets/frontend/css/ionicons.css" rel="stylesheet">
+
 
 
     
@@ -29,11 +30,11 @@
 
 	<!-- SCIPTS -->
 
-	<script src="/assets/frontend/js/jquery-3.1.1.min.js"></script>
+    <script src="/assets/frontend/js/jquery-3.1.1.min.js"></script>
 
-	<script src="/assets/frontend/js/tether.min.js"></script>
+    <script src="/assets/frontend/js/tether.min.js"></script>
 
-	<script src="/assets/frontend/js/bootstrap.js"></script>
+    <script src="/assets/frontend/js/bootstrap.js"></script>
 
 
 
@@ -54,7 +55,6 @@
 @include('layouts.frontend.partial.header');
 
 @yield('content')
-
 
 
 

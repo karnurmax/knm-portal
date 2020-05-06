@@ -4,7 +4,7 @@
 
 @push('css')
 <!-- Bootstrap Select Css -->
-    <link href="{{ asset('public/assets/backend/plugins/bootstrap-select/css/bootstrap-select.css') }}" rel="stylesheet" />
+    <link href="/assets/backend/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 @endpush
 
 
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               ADD NEW POST
+                               ДОБАВИТЬ НОВЫЙ ПОСТ
                               
                             </h2>
           
@@ -43,12 +43,12 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
             <input type="text" id="title" class="form-control" name="title">
-           <label class="form-label">Post Title </label>
+           <label class="form-label">Название Поста </label>
                                     </div>
                                 </div>
 
                      <div class="form-group">
-                      <label for="image">Featured Image</label>
+                      <label for="image">Загрузить Картинку</label>
                       <input type="file" name="image">   
 
                      </div>            
@@ -56,7 +56,7 @@
                               
                   <div class="form-group">
                     <input type="checkbox" id="publish" class="filled-in" name="status" value="1">
-               <label for="publish">Publish </label>
+               <label for="publish">Опубликовать </label>
                   </div>
                                
         
@@ -74,7 +74,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               CATEGORIES AND TAGS
+                               КАТЕГОРИИ И ТЭГИ
                               
                             </h2>
                    
@@ -84,7 +84,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line {{ $errors->has('categories') ? 'focused error' : '' }} ">
              
-           <label for="category">Select Category </label>
+           <label for="category">Выбрать Категории </label>
            <select name="categories[]" id="category" class="form-control show-tick" data-live-search="true" multiple > 
 
             @foreach($categories as $category)
@@ -101,7 +101,7 @@
                                 <div class="form-group form-float">
                                    <div class="form-line {{ $errors->has('tags') ? 'focused error' : '' }} ">
              
-           <label for="tag">Select Tags </label>
+           <label for="tag">Выбрать Тэги </label>
            <select name="tags[]" id="tags" class="form-control show-tick" data-live-search="true" multiple > 
 
             @foreach($tags as $tag)
@@ -117,8 +117,8 @@
 
                               
 
-        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('author.post.index') }} "> BACK</a>                        
-       <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('author.post.index') }} "> НАЗАД</a>                        
+       <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОТПРАВИТЬ</button>
                           
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               POST BODY
+                               ТЕКСТ ПОСТА
                               
                             </h2>
                    
@@ -163,9 +163,9 @@
 
 @push('js')
  <!-- Select Plugin Js -->
-    <script src="{{ asset('public/assets/backend/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script src="/assets/backend/plugins/bootstrap-select/js/bootstrap-select.js"></script>
     <!-- TinyMCE -->
-    <script src="{{ asset('public/assets/backend/plugins/tinymce/tinymce.js') }}"></script>
+    <script src="/assets/backend/plugins/tinymce/tinymce.js"></script>
    
    <script type="text/javascript">
    $(function () {
@@ -186,7 +186,7 @@
         image_advtab: true
     });
     tinymce.suffix = ".min";
-    tinyMCE.baseURL = '{{ asset('public/assets/backend/plugins/tinymce') }}';
+    tinyMCE.baseURL = '/assets/backend/plugins/tinymce';
 });
 
 

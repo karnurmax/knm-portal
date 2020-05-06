@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                EDIT CATEGORY
+                                ИЗМЕНИТЬ КАТЕГОРИЮ
 
                             </h2>
 
@@ -44,7 +44,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" id="name" class="form-control" name = "name"  value = "{{$category ->name}}">
-                                        <label class="form-label">Category Name</label>
+                                        <label class="form-label">Название Категория</label>
                                     </div>
                                 </div>
 
@@ -57,8 +57,8 @@
 
 
 
-                                <a  class = "btn btn-danger m-t-15 waves-effect" href="{{route('admin.category.index')}}">BACK</a>
-                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                <a  class = "btn btn-danger m-t-15 waves-effect" href="{{route('admin.category.index')}}">НАЗАД</a>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОТПРАВИТЬ</button>
                             </form>
                         </div>
                     </div>

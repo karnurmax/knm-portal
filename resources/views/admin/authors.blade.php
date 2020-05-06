@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ALL AUTHORS
+                                ВСЕ АВТОРЫ
                                 <span class = "badge bg-red">{{$authors->count()}}</span>
                             </h2>
 
@@ -42,22 +42,22 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Posts</th>
-                                            <th>Comments</th>
-                                            <th>Created at</th>
-                                            <th>Action</th>
+                                            <th>Имя</th>
+                                            <th>Посты</th>
+                                            <th>Комментарии</th>
+                                            <th>Время создания</th>
+                                            <th>Действие</th>
 
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                                 <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Posts</th>
-                                            <th>Comments</th>
-                                            <th>Created at</th>
-                                            <th>Action</th>
+                                            <th>Имя</th>
+                                            <th>Посты</th>
+                                            <th>Комментарии</th>
+                                            <th>Время создания</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                    <tbody>

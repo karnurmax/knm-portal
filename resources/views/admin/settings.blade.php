@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                SETTINGS
+                                НАСТРОЙКИ
                             </h2>
                             
                         </div>
@@ -24,12 +24,12 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
                                     <a href="#home_with_icon_title" data-toggle="tab">
-                                        <i class="material-icons">work</i> UPDATE PROFILE
+                                        <i class="material-icons">work</i> ОБНОВИТЬ ПРОФИЛЬ
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="#profile_with_icon_title" data-toggle="tab">
-                                        <i class="material-icons">change_history</i> PASSWORD CHANGE
+                                        <i class="material-icons">change_history</i> ПОМЕНЯТЬ ПАРОЛЬ
                                     </a>
                                 </li>
 
@@ -71,7 +71,7 @@
                                 @method('PUT')
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="name">Name</label>
+                                        <label for="name">Имя</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -104,7 +104,7 @@
 
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="name">About Profile</label>
+                                        <label for="name">Написать о себе</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -124,7 +124,7 @@
 
                                 <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОБНОВИТЬ</button>
                                     </div>
                                 </div>
                             </form>
@@ -151,12 +151,12 @@
                                 @method('PUT')
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="old_password">Old Password</label>
+                                        <label for="old_password">Старый пароль</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="password" id="name" class="form-control" placeholder="Enter your Old Password" name="old_password">
+                                                <input type="password" id="name" class="form-control" placeholder="Введите Ваш старый пароль" name="old_password">
                                             </div>
                                         </div>
                                     </div>
@@ -165,12 +165,12 @@
 
                                  <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="password">New Password</label>
+                                        <label for="password">Новый пароль</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="password" id="password" class="form-control" placeholder="Enter your Password" name="password">
+                                                <input type="password" id="password" class="form-control" placeholder="Введите Ваш новый пароль" name="password">
                                             </div>
                                         </div>
                                     </div>
@@ -179,12 +179,12 @@
 
                                    <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="confirm_password">Confirm Password</label>
+                                        <label for="confirm_password">Подтвердить пароль</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="password" id="confirm_password" class="form-control" placeholder="Enter your Confirm Password" name="password_confirmation">
+                                                <input type="password" id="confirm_password" class="form-control" placeholder="Подтвердите Ваш новый пароль" name="password_confirmation">
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                 
                                 <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОБНОВИТЬ</button>
                                     </div>
                                 </div>
                             </form>

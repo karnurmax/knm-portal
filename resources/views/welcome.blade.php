@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 
-@section('title','Main Blog')
+@section('title','FORUM')
 
 @push('css')
 <link href="/assets/frontend/css/home/styles.css" rel="stylesheet">
@@ -65,7 +65,7 @@
 
 								<ul class="post-footer">
 									<li><a href="#"><i class="ion-chatbubble"></i>{{$post->comments->count()}}</a></li>
-									<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+									 <!-- <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li> -->
 								</ul>
 
 							</div><!-- blog-info -->
@@ -78,7 +78,7 @@
 
 			</div><!-- row -->
 
-			<a class="load-more-btn" href="{{route('post.index')}}"><b>See all posts</b></a>
+			<a class="load-more-btn" href="{{route('post.index')}}"><b>СМОТРЕТЬ ВСЕ ПОСТЫ</b></a>
 
 		</div><!-- container -->
 	</section><!-- section -->

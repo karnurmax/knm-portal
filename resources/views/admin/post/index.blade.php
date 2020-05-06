@@ -13,7 +13,7 @@
                  
                  <a class="btn btn-primary waves-effect" href="{{ route('admin.post.create') }}">
                  	<i class="material-icons">add</i>
-                 	<span> Add New Post </span> </a>
+                 	<span> Добавить новый пост </span> </a>
     
      @if(session('successMsg'))
 
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                              ALL POSTS
+                              ВсЕ ПОСТЫ
                               <span class="badge bg-red">{{ $posts->count() }} </span>
                             </h2>
                            
@@ -45,28 +45,28 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Author</th>
+                                            <th>Название</th>
+                                            <th>Автор</th>
                                             <th><i class="material-icons">visibility</i></th>
-                                            <th>In Appoved</th>
-                                            <th>Status</th>
-                                            <th>Created At</th>
+                                            <th>На утверждении</th>
+                                            <th>Статус</th>
+                                            <th>Время создания</th>
                                            
-                                            <th>Action</th>
+                                            <th>Действие</th>
                                              
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                              <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Author</th>
+                                            <th>Название</th>
+                                            <th>Автор</th>
                                             <th><i class="material-icons">visibility</i></th>
-                                            <th>In Appoved</th>
-                                            <th>Status</th>
-                                            <th>Created At</th>
+                                            <th>На утверждении</th>
+                                            <th>Статус</th>
+                                            <th>Время создания</th>
                                              
-                                            <th>Action</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                     
