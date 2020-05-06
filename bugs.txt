@@ -1,0 +1,11 @@
+1) While editing with Admin the author's post, the name changes from author to admin
+2) tags durys korinbeidi dashboardta
+3) categories durys korinbeidi dashboardta
+4) Home page javascript not working
+5) no borders for texts typing tinymce, potom body sozylyp kete beredi
+6) FORGOT PASSWORD retteu kerek
+7) oryshaga auystyru kerek
+8) All links tekseru kerek --routes qoyu kerek
+
+
+
