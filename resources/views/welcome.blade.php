@@ -3,7 +3,7 @@
 @section('title','Main Blog')
 
 @push('css')
-<link href="/assets/frontend/css/home/styles.css"rel="stylesheet">
+<link href="/assets/frontend/css/home/styles.css" rel="stylesheet">
 
 <link href="/assets/frontend/css/home/responsive.css" rel="stylesheet">
 @endpush
