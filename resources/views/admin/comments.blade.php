@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                              ALL COMMENTS
+                              ВСЕ КОММЕНТАРИИ
                               <span class="badge bg-red">{{ $comments->count() }} </span>
                             </h2>
                            
@@ -36,17 +36,17 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Comments Info</th>
-                                            <th>Post Info</th>
-                                            <th>Action</th>
+                                            <th>Коммент Инфо</th>
+                                            <th>Пост Инфо</th>
+                                            <th>Действие</th>
                                              
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Comments Info</th>
-                                            <th>Post Info</th>
-                                            <th>Action</th>
+                                            <th>Коммент Инфо</th>
+                                            <th>Пост Инфо</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                     
@@ -64,7 +64,7 @@
     <h4 class="media-heading">{{ $comment->user->name }}
    <small>{{ $comment->created_at->diffForHumans() }} </small> </h4>
    <p> {{ $comment->comment }} </p>
-   <a target="/blank" href="{{ route('post.details',$comment->post->slug. '#comments') }}">Replay</a>
+   <a target="/blank" href="{{ route('post.details',$comment->post->slug. '#comments') }}">Просмотреть в посте</a>
      
    </div>     
     </div> 

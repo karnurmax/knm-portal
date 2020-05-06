@@ -11,14 +11,14 @@
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                            
-                            <li><a href="{{Auth::user()->role_id == 1 ? route('admin.settings') : route('author.settings')}}"><i class="material-icons">settings</i>Settings</a></li>
+                            <li><a href="{{Auth::user()->role_id == 1 ? route('admin.settings') : route('author.settings')}}"><i class="material-icons">settings</i>Настройки</a></li>
 }
                             <li role="separator" class="divider"></li>
                             <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="material-icons">input</i>Sign Out
+                                        <i class="material-icons">input</i>Отлогиниться
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -39,7 +39,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">ОСНОВНАЯ НАВИГАЦИЯ</li>
 
 
 
@@ -49,17 +49,17 @@
         <li class="{{Request::is('admin/dashboard') ? 'active' : '' }}">
                         <a href="{{route('admin.dashboard')}}">
                             <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
+                            <span>ДОСКА АДМИНА</span>
                         </a>
                     </li>
-                    <li class = "header">System</li>
+                    <li class = "header">System </li>
 
 
 
                     <li class="{{Request::is('admin/tag*') ? 'active' : '' }}">
                         <a href="{{route('admin.tag.index')}}">
                             <i class="material-icons">label</i>
-                            <span>Tag</span>
+                            <span>ТЭГИ</span>
                         </a>
                     </li>
 
@@ -68,7 +68,7 @@
                     <li class="{{Request::is('admin/category*') ? 'active' : '' }}">
                         <a href="{{route('admin.category.index')}}">
                             <i class="material-icons">apps</i>
-                            <span>Category</span>
+                            <span>КАТЕГОРИИ</span>
                         </a>
                     </li>
 
@@ -76,7 +76,7 @@
                     <li class="{{Request::is('admin/post*') ? 'active' : '' }}">
                         <a href="{{route('admin.post.index')}}">
                             <i class="material-icons">library_books</i>
-                            <span>Post</span>
+                            <span>ПОСТЫ</span>
                         </a>
                     </li>
 
@@ -85,7 +85,7 @@
                     <li class="{{Request::is('admin/pending/post') ? 'active' : '' }}">
                         <a href="{{route('admin.post.pending')}}">
                             <i class="material-icons">library_books</i>
-                            <span>Pending Posts</span>
+                            <span>ПОСТЫ НА УТВЕРЖДЕНИИ</span>
                         </a>
                     </li>
 
@@ -93,7 +93,7 @@
                     <li class="{{Request::is('admin/comments') ? 'active' : '' }}">
                         <a href="{{route('admin.comment.index')}}">
                             <i class="material-icons">comment</i>
-                            <span>All comments</span>
+                            <span>ВСЕ КОММЕНТАРИИ</span>
                         </a>
                     </li>
 
@@ -101,7 +101,7 @@
                     <li class="{{Request::is('admin/author') ? 'active' : '' }}">
                         <a href="{{route('admin.author.index')}}">
                             <i class="material-icons">account_circle</i>
-                            <span>All Authors</span>
+                            <span>ВСЕ АВТОРЫ</span>
                         </a>
                     </li>
 
@@ -109,7 +109,7 @@
                     <li class="{{Request::is('admin/subscriber') ? 'active' : '' }}">
                         <a href="{{route('admin.subscriber.index')}}">
                             <i class="material-icons">subscriptions</i>
-                            <span>All Subscribers</span>
+                            <span>ВСЕ ПОДПИСЧИКИ</span>
                         </a>
                     </li>
 
@@ -126,7 +126,7 @@
                     <li class="{{Request::is('admin/settings') ? 'active' : '' }}">
                         <a href="{{route('admin.settings')}}">
                             <i class="material-icons">settings</i>
-                            <span>User Settings</span>
+                            <span>НАСТРОЙКИ АДМИНА</span>
                         </a>
                     </li>
 
@@ -138,7 +138,7 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="material-icons">input</i>
-                                        <span>Sign Out</span>
+                                        <span>ОТЛОГИНИТЬСЯ</span>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -167,21 +167,21 @@
         <li class="{{Request::is('author/dashboard') ? 'active' : '' }}">
                         <a href="{{route('author.dashboard')}}">
                             <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
+                            <span>ДОСКА АВТОРА</span>
                         </a>
                     </li>
 
                     <li class="{{Request::is('author/post*') ? 'active' : '' }}">
                         <a href="{{route('author.post.index')}}">
                             <i class="material-icons">library_books</i>
-                            <span>Post</span>
+                            <span>ПОСТЫ</span>
                         </a>
                     </li>
 
                     <li class="{{Request::is('author/comments') ? 'active' : '' }}">
                         <a href="{{route('author.comment.index')}}">
                             <i class="material-icons">comment</i>
-                            <span>All comments</span>
+                            <span>ВСЕ КОММЕНТАРИИ</span>
                         </a>
                     </li>
 
@@ -190,7 +190,7 @@
                     <li class="{{Request::is('author/settings') ? 'active' : '' }}">
                         <a href="{{route('author.settings')}}">
                             <i class="material-icons">settings</i>
-                            <span>User Settings</span>
+                            <span>НАСТРОЙКИ ПОЛЬЗОВАТЕЛЯ</span>
                         </a>
                     </li>
 
@@ -199,7 +199,7 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="material-icons">input</i>
-                                        <span>Sign Out</span>
+                                        <span>ОТЛОГИНИТЬСЯ</span>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

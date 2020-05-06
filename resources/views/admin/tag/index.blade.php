@@ -14,7 +14,7 @@
             <div class="block-header">
                 <a class = "btn btn-primary waves-effect" href = "{{route('admin.tag.create')}}">
                 <i class = "material-icons">add</i>
-                <span>Add new Tag</span></a>
+                <span>Добавить новый ТЭГ</span></a>
                 
         @if(session('successMsg'))
         <div class = "alert alert-success" roles = "alert">
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ALL TAGS
+                                ВСЕ ТЭГИ
                                 <span class = "badge bg-red">{{$tags->count()}}</span>
                             </h2>
 
@@ -45,22 +45,22 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Post Count</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Название</th>
+                                            <th>Количество постов</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
 
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>Post Count</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Название</th>
+                                            <th>Количество постов</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                    <tbody>

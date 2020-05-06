@@ -11,19 +11,19 @@
 @section('content')
  <div class="container-fluid">
             
-   <a href="{{ route('author.post.index') }}" class="btn btn-danger wave-effect" >BACK</a>
+   <a href="{{ route('author.post.index') }}" class="btn btn-danger wave-effect" >НАЗАД</a>
 
  @if($post->is_approved == false)
  <button type="button" class="btn btn-success pull-right">
 <i class="material-icons">done</i>
-<span>Approve</span>
+<span>Утвердить</span>
   </button>
 
 @else
 
  <button type="button" class="btn btn-success pull-right" disabled>
 <i class="material-icons">done</i>
-<span>Approved</span>
+<span>Утвержден</span>
   </button>
  
  @endif
@@ -39,7 +39,7 @@
                         <div class="header">
                             <h2>
                               {{ $post->title }}
-                              <small>Posted By <strong><a href="">{{ $post->user->name }}</a> </strong> on {{ $post->created_at->toFormattedDateString() }}   </small>
+                              <small>Опубликован автором <strong><a href="">{{ $post->user->name }}</a> </strong> в {{ $post->created_at->toFormattedDateString() }}   </small>
                               
                             </h2>
    
@@ -64,7 +64,7 @@
                     <div class="card">
                         <div class="header bg-cyan">
                             <h2>
-                            Categoryies    
+                            КАТЕГОРИИ  
                               
                             </h2>
                    
@@ -83,7 +83,7 @@
                     <div class="card">
                         <div class="header bg-green">
                             <h2>
-                            Tags    
+                          ТЭГИ    
                               
                             </h2>
                    
@@ -104,7 +104,7 @@
                          <div class="card">
                         <div class="header bg-amber">
                             <h2>
-                           Featured Image  
+                           ЗАГРУЖЕННАЯ КАРТИНКА  
                               
                             </h2>
                    

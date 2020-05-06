@@ -16,7 +16,7 @@
 @section('content')
 
 <div class="slider display-table center-text">
-		<h1 class="title display-table-cell"><b>ALL POSTS</b></h1>
+		<h1 class="title display-table-cell"><b>ВСЕ ПОСТЫ</b></h1>
 	</div><!-- slider -->
 
 	<section class="blog-area section">
@@ -38,7 +38,7 @@
 
 								<ul class="post-footer">
 									<li><a href="#"><i class="ion-chatbubble"></i>{{$post->comments->count()}}</a></li>
-									<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+									<!--<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>-->
 								</ul>
 
 							</div><!-- blog-info -->

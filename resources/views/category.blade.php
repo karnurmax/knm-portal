@@ -40,7 +40,7 @@
 
 								<ul class="post-footer">
 									<li><a href="#"><i class="ion-chatbubble"></i>{{$post->comments->count()}}</a></li>
-									<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+									<!--<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>-->
 								</ul>
 
 							</div><!-- blog-info -->
@@ -59,7 +59,7 @@
 <div class="blog-info">
 
 <h4 class="title">
-<strong> Sorry, There have no post found :(</strong>
+<strong> К сожалению, постов не найдено:(</strong>
 </h4>
 
 		  </div>

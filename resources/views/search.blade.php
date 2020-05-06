@@ -18,7 +18,7 @@
 @section('content')
 
 <div class="slider display-table center-text">
-		<h1 class="title display-table-cell"><b>{{$posts->count()}} Results for {{$query}}</b></h1>
+		<h1 class="title display-table-cell"><b>{{$posts->count()}} результатов поиска для {{$query}}</b></h1>
 	</div><!-- slider -->
 
 	<section class="blog-area section">
@@ -60,7 +60,7 @@
  <div class="blog-info">
 
  <h4 class="title">
-<strong> Sorry, There have no post found :(</strong>
+<strong> К сожалению, постов не найдено :( </strong>
    </h4>
 
                     </div>

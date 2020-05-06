@@ -12,8 +12,9 @@
 
 <style>
 	.header-bg{
- height: 50%;
+ height: 100%;
  width: 100%;
+
  background-image: url({{ Storage::disk('public')->url('post/'.$post->image)  }});
  background-size: cover;
 	}
@@ -68,7 +69,7 @@
 							<ul class="post-icons">
                             
                             <li><a href="#"><i class="ion-chatbubble"></i>{{$post->comments->count()}}</a></li>
-							<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+							<!--<li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>-->
 							
                             </ul>
 
@@ -89,11 +90,11 @@
 
 
 
-							<ul class="icons">
+							<!-- <ul class="icons">
 								<li>SHARE : </li>
 								<li><a href="#"><i class="ion-social-facebook"></i></a></li>
 								<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>-->
 							</ul>
 						</div>
 
@@ -107,7 +108,7 @@
 					<div class="single-post info-area">
 
 						<div class="sidebar-area about-area">
-							<h4 class="title"><b>ABOUT AUTHOR</b></h4>
+							<h4 class="title"><b>ОБ АВТОРЕ</b></h4>
 							<p>{{$post->user->about}}</p>
 						</div>
 
@@ -117,7 +118,7 @@
 
 						<div class="tag-area">
 
-							<h4 class="title"><b>CATEGORIES</b></h4>
+							<h4 class="title"><b>КАТЕГОРИИ</b></h4>
 							<ul>
                             @foreach($post->categories as $category)
 								<li><a href="{{route('category.posts',$category->slug)}}">{{ $category->name }}</a></li>
@@ -156,7 +157,7 @@
 
 								<ul class="post-footer">
 									<li><a href="#"><i class="ion-chatbubble"></i>{{$post->comments->count()}}</a></li>
-									<li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
+									<!-- <li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>-->
 								</ul>
 
 							</div><!-- blog-info -->
@@ -175,7 +176,7 @@
 
 	<section class="comment-section">
 		<div class="container">
-			<h4><b>POST COMMENT</b></h4>
+			<h4><b>КОММЕНТАРИЙ ПОСТА</b></h4>
 
 			@if(session('successMsg'))
         <div class = "alert alert-success" roles = "alert">
@@ -191,7 +192,7 @@
 					<div class="comment-form">
 
                     @guest
-                       <p> For post a new comment. You need to login first <a href="{{ route('login')}}">Login </a> </p>
+                       <p> Для того,чтобы оставить комментарий, нужно войти как пользователь <a href="{{ route('login')}}">ВОЙТИ </a> </p>
                     @else
                      
                           <form method="post" action=" {{ route('comment.store',$post->id) }}">
@@ -204,7 +205,7 @@
 										placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
 								</div><!-- col-sm-12 -->
 								<div class="col-sm-12">
-									<button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
+									<button class="submit-btn" type="submit" id="form-submit"><b>НАПИСАТЬ КОММЕНТАРИЙ</b></button>
 								</div><!-- col-sm-12 -->
 
 							</div><!-- row -->
@@ -216,7 +217,7 @@
 
 					</div><!-- comment-form -->
 
-					<h4><b>COMMENTS({{ $post->comments->count() }})</b></h4>
+					<h4><b>КОММЕНТАРИИ({{ $post->comments->count() }})</b></h4>
 
 					 @if($post->comments->count() > 0 )
             
@@ -246,12 +247,12 @@
 
 					@endforeach
 
-					<a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</a>
+					<!--<a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</a>-->
 
 					 @else
 
 					 <div class="commnets-area ">
-				<p> No Comment Ye be the first one </p>
+				<p> Пока нет комментов, Вы можете оставить один из первых комментов </p>
 			</div>
 
 				@endif

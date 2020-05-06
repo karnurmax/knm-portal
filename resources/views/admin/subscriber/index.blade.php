@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ALL SUBSCRIBERS
+                                ВСЕ ПОДПИСЧИКИ
                                 <span class = "badge bg-red">{{$subscribers->count()}}</span>
                             </h2>
 
@@ -43,9 +43,9 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
 
                                         </tr>
                                     </thead>
@@ -53,9 +53,9 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
+                                            <th>Время создания</th>
+                                            <th>Время последнего обновления</th>
+                                            <th>Действие</th>
                                         </tr>
                                     </tfoot>
                                    <tbody>

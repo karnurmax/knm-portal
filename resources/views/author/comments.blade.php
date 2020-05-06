@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                              ALL COMMENTS
+                             ВСЕ КОММЕНТАРИИ
                              
                             </h2>
                            
@@ -36,17 +36,17 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Comments Info</th>
-                                            <th>Post Info</th>
-                                            <th>Action</th>
+                                            <th>КОММЕНТ ИНФО</th>
+                                            <th>ПОСТ ИНФО</th>
+                                            <th>ДЕЙСТВИЕ</th>
                                              
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Comments Info</th>
-                                            <th>Post Info</th>
-                                            <th>Action</th>
+                                            <th>КОММЕНТ ИНФО</th>
+                                            <th>ПОСТ ИНФО</th>
+                                            <th>ДЕЙСТВИЕ</th>
                                         </tr>
                                     </tfoot>
                                     
