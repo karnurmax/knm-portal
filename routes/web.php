@@ -26,10 +26,6 @@ Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store'
 
 Route::get('/search', 'SearchController@search')->name('search');
 
-Route::get('/migrate', function () {
-    Artisan::call('migrate --seed');
-});
-
 Auth::routes();
 
 
@@ -65,8 +61,23 @@ Route::group(
 
         Route::get('author', 'AuthorController@index')->name('author.index');
         Route::delete('author/{id}', 'AuthorController@destroy')->name('author.destroy');
+
+        
     }
 );
+Route::group(['prefix' => 'artisan'],function(){
+            
+    Route::get('/migrate', function () {
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+        
+    });
+    
+    Route::get('/storagelink', function () {
+        Artisan::call('storage:link');
+        return "OK";
+    });
+});
 
 Route::group(
     ['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']],
