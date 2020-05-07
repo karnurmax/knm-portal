@@ -28,21 +28,6 @@
     @stack('css')
     
 
-	<!-- SCIPTS -->
-
-    <script src="/assets/frontend/js/jquery-3.1.1.min.js"></script>
-
-    <script src="/assets/frontend/js/tether.min.js"></script>
-
-    <script src="/assets/frontend/js/bootstrap.js"></script>
-
-
-
-
-
-
-    @stack('js')
-
     <!-- Fonts -->
 
 
@@ -59,6 +44,22 @@
 
 
     @include('layouts.frontend.partial.footer');
+
+
+
+
+	<!-- SCIPTS -->
+
+    <script src="/assets/frontend/js/jquery-3.1.1.min.js"></script>
+
+    <script src="/assets/frontend/js/tether.min.js"></script>
+
+    <script src="/assets/frontend/js/bootstrap.js"></script>
+
+
+
+    @stack('js')
+
 
 </body>
 </html>
