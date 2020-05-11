@@ -13,8 +13,6 @@
 
 Route::get('/', 'HomeController@index')->name('mainhome');
 
-Route::get('/change-password', 'Auth\ChangePasswordController@index')->name('password.change');
-Route::post('/change-password', 'Auth\ChangePasswordController@changepassword')->name('password.update');
 
 Route::get('posts', 'PostController@index')->name('post.index');
 Route::get('post/{slug}', 'PostController@details')->name('post.details');
