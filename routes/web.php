@@ -31,6 +31,7 @@ Route::get('/migrate', function () {
 Route::get('/migrate', function () {
     Artisan::call('migrate');
 });
+
 Auth::routes();
 
 
