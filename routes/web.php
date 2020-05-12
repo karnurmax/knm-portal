@@ -28,6 +28,10 @@ Route::get('/migrate', function () {
     Artisan::call('migrate --seed');
 });
 
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+});
+
 Auth::routes();
 
 
