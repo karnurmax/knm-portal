@@ -92,7 +92,7 @@
 
             @endforeach
 
-           </select>
+           </select> 
                                     </div>
                                 </div>
 
@@ -157,7 +157,7 @@
             <!-- #END# Multi Column -->
         </div>
 
-@endsection
+@endsection 
 
 
 
@@ -186,7 +186,7 @@
         image_advtab: true
     });
     tinymce.suffix = ".min";
-    tinyMCE.baseURL = '/assets/backend/plugins/tinymce';
+    tinyMCE.baseURL = "/assets/backend/plugins/tinymce";
 });
 
 
