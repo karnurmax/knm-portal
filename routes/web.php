@@ -13,8 +13,6 @@
 
 Route::get('/', 'HomeController@index')->name('mainhome');
 
-Route::get('/change-password', 'Auth\ChangePasswordController@index')->name('password.change');
-Route::post('/change-password', 'Auth\ChangePasswordController@changepassword')->name('password.update');
 
 Route::get('posts', 'PostController@index')->name('post.index');
 Route::get('post/{slug}', 'PostController@details')->name('post.details');
@@ -28,7 +26,8 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 Route::get('/migrate', function () {
     try{
-        Artisan::call('migrate --seed');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
     }catch(Exception $ex){
         return $ex->getMessage();
     }
@@ -70,8 +69,23 @@ Route::group(
 
         Route::get('author', 'AuthorController@index')->name('author.index');
         Route::delete('author/{id}', 'AuthorController@destroy')->name('author.destroy');
+
+        
     }
 );
+Route::group(['prefix' => 'artisan'],function(){
+            
+    Route::get('/migrate', function () {
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+        
+    });
+    
+    Route::get('/storagelink', function () {
+        Artisan::call('storage:link');
+        return "OK";
+    });
+});
 
 Route::group(
     ['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']],

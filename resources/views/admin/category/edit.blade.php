@@ -52,6 +52,8 @@
 
                                 <div class="form-group">
                                 <input type = "file" name = "image">
+                                <span> {{$category ->image}}</span>
+                                <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('category/'.$category->image) }}"  style= "width:350px;height:228px "/>
                                     
                                 </div>
 
