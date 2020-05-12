@@ -27,7 +27,12 @@ Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store'
 Route::get('/search', 'SearchController@search')->name('search');
 
 Route::get('/migrate', function () {
-    Artisan::call('migrate --seed');
+    try{
+        Artisan::call('migrate --seed');
+    }catch(Exception $ex){
+        return $ex->getMessage();
+    }
+    return "OK";
 });
 
 Auth::routes();
