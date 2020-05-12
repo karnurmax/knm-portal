@@ -8,6 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
+define('STDIN',fopen("php://stdin","r"));
 
 /*
 |--------------------------------------------------------------------------

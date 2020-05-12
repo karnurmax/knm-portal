@@ -51,6 +51,8 @@
                      <div class="form-group">
                       <label for="image">Featured Image</label>
                       <input type="file" name="image">   
+                      <span> {{$post ->image}}</span>
+                      <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image) }}"  style= "width:350px;height:228px "/>
 
                      </div>            
 
