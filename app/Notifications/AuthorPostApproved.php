@@ -47,8 +47,9 @@ class AuthorPostApproved extends Notification implements ShouldQueue
                     ->greeting('Hello' .$this->post->user->name. '!')
                     ->line('Your Post has been successfully Approved')
                     ->line('Post Title : ' .$this->post->title)
-                    ->action('view', url(route('author.post.show',$this->post->id)))
-                    ->line('Thank you for using our application!');
+                       /** ->action('view', url(route('author.post.show',$this->post->id)))    */
+                        /**JUST MAKE if else conditions to make different actions for developer and the author*/
+                       ->line('Thank you for using our application!');
     }
 
     /**
