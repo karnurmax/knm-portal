@@ -26,8 +26,15 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 Route::get('/migrate', function () {
     try{
-        Artisan::call('migrate');
-        Artisan::call('db:seed');
+        Artisan::call('migrate --force');
+    }catch(Exception $ex){
+        return $ex->getMessage();
+    }
+    return "OK";
+});
+Route::get('/seed', function () {
+    try{
+        Artisan::call('db:seed --force');
     }catch(Exception $ex){
         return $ex->getMessage();
     }
