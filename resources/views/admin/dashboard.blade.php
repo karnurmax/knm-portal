@@ -89,6 +89,20 @@
                     </div>
 
 
+
+                    <div class="info-box bg-blue-grey hover-zoom-effect">
+                        <div class="icon">
+                            <i class="material-icons">account_circle</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ВСЕГО ПРОГРАММИСТОВ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $dev_count }}" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+
+
+
+
                      <div class="info-box bg-black hover-zoom-effect">
                         <div class="icon">
                             <i class="material-icons">fiber_new</i>
@@ -96,6 +110,18 @@
                         <div class="content">
                             <div class="text">СЕГОДНЯШНИЕ АВТОРЫ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $new_authors_today }}" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="info-box bg-black hover-zoom-effect">
+                        <div class="icon">
+                            <i class="material-icons">fiber_new</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">СЕГОДНЯШНИЕ ПРОГРАММИСТЫ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $new_devs_today }}" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
 
@@ -204,6 +230,58 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ТОП 10 АКТИВНЫХ ПРОГРАММИСТОВ</h2>
+                             
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>Список по рангу</th>
+                                            <th>Имя</th>
+                                            <th>Посты</th>
+                                            <th>Комментарии</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                               @foreach($active_devs as $key=>$dev)         
+                                        <tr>
+
+
+                                    <td> {{ $key + 1 }} </td>
+                                    <td> {{ $dev->name }}  </td>
+                                    <td> {{ $dev->posts_count  }}  </td>
+                                    <td> {{ $dev->comments_count  }}  </td>
+
+ 
+                                        </tr>
+                                   @endforeach     
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
                 <!-- #END# Task Info -->
                 <!-- Browser Usage -->
                  

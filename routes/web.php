@@ -69,6 +69,9 @@ Route::group(
 
         Route::get('author', 'AuthorController@index')->name('author.index');
         Route::delete('author/{id}', 'AuthorController@destroy')->name('author.destroy');
+        
+        Route::get('dev', 'DevController@index')->name('dev.index');
+        Route::delete('dev/{id}', 'DevController@destroy')->name('dev.destroy');
 
         
     }
@@ -89,6 +92,23 @@ Route::group(['prefix' => 'artisan'],function(){
 
 Route::group(
     ['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']],
+    function () {
+        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+        Route::get('settings', 'SettingsController@index')->name('settings');
+        Route::put('profile-update', 'SettingsController@updateProfile')->name('profile.update');
+        Route::put('password-update', 'SettingsController@updatePassword')->name('password.update');
+
+        Route::resource('post', 'PostController');
+
+
+        Route::get('comments/', 'CommentController@index')->name('comment.index');
+        Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
+    }
+);
+
+Route::group(
+    ['as' => 'dev.', 'prefix' => 'dev', 'namespace' => 'Dev', 'middleware' => ['auth', 'dev']],
     function () {
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 

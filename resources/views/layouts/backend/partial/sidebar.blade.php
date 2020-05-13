@@ -11,8 +11,25 @@
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                            
-                            <li><a href="{{Auth::user()->role_id == 1 ? route('admin.settings') : route('author.settings')}}"><i class="material-icons">settings</i>Настройки</a></li>
-}
+                            <li>
+
+                            @if(Auth::user()->role_id == 1)
+                             <a href="{{route('admin.settings')}}">
+                            @endif
+
+                            @if(Auth::user()->role_id == 2)
+                             <a href="{{route('author.settings')}}">
+                            @endif
+
+                            @if(Auth::user()->role_id == 3)
+                             <a href="{{route('dev.settings')}}">
+                            @endif
+                            
+                            
+                            <i class="material-icons">settings</i>Настройки</a></li>
+                           
+                           
+                           
                             <li role="separator" class="divider"></li>
                             <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -102,6 +119,13 @@
                         <a href="{{route('admin.author.index')}}">
                             <i class="material-icons">account_circle</i>
                             <span>ВСЕ АВТОРЫ</span>
+                        </a>
+                    </li>
+
+                    <li class="{{Request::is('admin/dev') ? 'active' : '' }}">
+                        <a href="{{route('admin.dev.index')}}">
+                            <i class="material-icons">account_circle</i>
+                            <span>ВСЕ ПРОГРАММИСТЫ</span>
                         </a>
                     </li>
 
@@ -208,6 +232,55 @@
 
                     </li>
         @endif
+
+
+        @if(Request::is('dev*'))
+
+
+<li class="{{Request::is('dev/dashboard') ? 'active' : '' }}">
+                <a href="{{route('dev.dashboard')}}">
+                    <i class="material-icons">dashboard</i>
+                    <span>ДОСКА ПРОГРАММИСТА</span>
+                </a>
+            </li>
+
+            <li class="{{Request::is('dev/post*') ? 'active' : '' }}">
+                <a href="{{route('dev.post.index')}}">
+                    <i class="material-icons">library_books</i>
+                    <span>ПОСТЫ</span>
+                </a>
+            </li>
+
+            <li class="{{Request::is('dev/comments') ? 'active' : '' }}">
+                <a href="{{route('dev.comment.index')}}">
+                    <i class="material-icons">comment</i>
+                    <span>ВСЕ КОММЕНТАРИИ</span>
+                </a>
+            </li>
+
+            <li class = "header">System</li>
+
+            <li class="{{Request::is('dev/settings') ? 'active' : '' }}">
+                <a href="{{route('dev.settings')}}">
+                    <i class="material-icons">settings</i>
+                    <span>НАСТРОЙКИ ПОЛЬЗОВАТЕЛЯ</span>
+                </a>
+            </li>
+
+<li> 
+                 <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                <i class="material-icons">input</i>
+                                <span>ОТЛОГИНИТЬСЯ</span>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
+            </li>
+@endif
 
 
 

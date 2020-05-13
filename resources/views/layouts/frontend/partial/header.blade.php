@@ -21,6 +21,11 @@
 				<li><a href="{{route('author.dashboard')}}">Личный кабинет</a></li>
 				@endif
 
+				
+				@if(Auth::user()->role->id == 3)
+				<li><a href="{{route('dev.dashboard')}}">Личный кабинет</a></li>
+				@endif
+
 				@endguest
 
 
