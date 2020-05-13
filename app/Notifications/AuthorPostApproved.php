@@ -41,15 +41,31 @@ class AuthorPostApproved extends Notification implements ShouldQueue
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {
+    
+    { if($this->post->user->role_id == 2){
+        
         return (new MailMessage)
                     ->subject('Your Post Successfully Approved')
                     ->greeting('Hello' .$this->post->user->name. '!')
                     ->line('Your Post has been successfully Approved')
                     ->line('Post Title : ' .$this->post->title)
-                       /** ->action('view', url(route('author.post.show',$this->post->id)))    */
-                        /**JUST MAKE if else conditions to make different actions for developer and the author*/
-                       ->line('Thank you for using our application!');
+                    ->action('view', url(route('author.post.show',$this->post->id)))  
+                        /**JUST MAKE if else conditions to make different actions for developer and the author. Is it correct?*/
+                    ->line('Thank you for using our application!');}
+
+
+        else {
+            return (new MailMessage)
+                        ->subject('Your Post Successfully Approved')
+                        ->greeting('Hello' .$this->post->user->name. '!')
+                        ->line('Your Post has been successfully Approved')
+                        ->line('Post Title : ' .$this->post->title)
+                        ->action('view', url(route('dev.post.show',$this->post->id))) 
+                            /**JUST MAKE if else conditions to make different actions for developer and the author. Is it correct?*/
+                        ->line('Thank you for using our application!');}
+
+
+
     }
 
     /**
