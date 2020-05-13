@@ -48,7 +48,7 @@ class NewAuthorPost extends Notification implements ShouldQueue
                     ->line(' New Post By '. $this->post->user->name . 'Need to Approve')
                     ->line(' To approve the post click view Button ')
                     ->line(' Post Title : ' .$this->post->title)
-                    ->action(' View ', url(route('author.post.show',$this->post->id)))
+                    ->action(' View ', url(route('admin.post.show',$this->post->id)))
                     ->line(' Thank you for using our application! ');
     }
 
