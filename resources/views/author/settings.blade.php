@@ -119,20 +119,21 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="name">Поменять статус пользователя</label>
+                                        <label for="name">Изменить позицию</label>
                                     </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                     <input type="checkbox" id="publish" class="filled-in" name="status" value="1"
-                                            {{ Auth::user()->role_id == 2 ? 'checked' : '' }} >
-                                             <label for="publish">В данный момент я пользователь </label>
-                                            </div>
-                                            
+                                    <div class="col-lg-2 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                           <select name = "role_id" class = "form-control">
+                                           <option value = "2">Клиент</option>
+                                           <option value = "3">Программист</option>
+                                           </select>
 
-
-
+            
+                                        </div>
                                     </div>
                                 </div>
 

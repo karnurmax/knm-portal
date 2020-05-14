@@ -25,6 +25,7 @@ class SettingsController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->about = $request->about;
+        $user->role_id = $request->role_id;
         $user->save();
 
         return redirect()->back()->with('successMsg', 'User profile updated Successfully');
