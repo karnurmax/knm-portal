@@ -130,12 +130,13 @@
                                            <select name = "role_id" class = "form-control">
                                            <option value = "2">Клиент</option>
                                            <option value = "3">Программист</option>
-                                           </select>
+                                            </select>
 
             
                                         </div>
                                     </div>
                                 </div>
+
 
 
 
