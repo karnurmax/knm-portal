@@ -48,6 +48,11 @@ class User extends Authenticatable
 
     }
 
+    public function plugins(){
+        return $this->hasMany ('App\Plugin'); 
+
+    }
+
     public function comments(){
         return $this->hasMany ('App\Comment'); 
 
