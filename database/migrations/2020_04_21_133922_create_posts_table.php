@@ -25,7 +25,7 @@ class CreatePostsTable extends Migration
             $table->boolean('is_approved')->default(false);
             $table->foreign('user_id')
                     ->references('id')->on('users');
-
+  /**removed cascade deleting in this place*/
             $table->timestamps();
         
         });

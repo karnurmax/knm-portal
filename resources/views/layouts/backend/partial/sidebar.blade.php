@@ -97,6 +97,13 @@
                         </a>
                     </li>
 
+                    <li class="{{Request::is('admin/plugin*') ? 'active' : '' }}">
+                        <a href="{{route('admin.plugin.index')}}">
+                            <i class="material-icons">extension</i>
+                            <span>ПЛАГИНЫ</span>
+                        </a>
+                    </li>
+
 
                     
                     <li class="{{Request::is('admin/pending/post') ? 'active' : '' }}">

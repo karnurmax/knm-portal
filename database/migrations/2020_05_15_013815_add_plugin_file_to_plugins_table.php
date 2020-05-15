@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagPluginTable extends Migration
+class AddPluginFileToPluginsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTagPluginTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_plugin', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('plugin_id');
-            $table->integer('tag_id');
-             $table->timestamps();
+        Schema::table('plugins', function (Blueprint $table) {
+            $table->string('plugin_file')->default('default_plugin.zip')->after('body');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTagPluginTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_plugin');
+        Schema::table('plugins', function (Blueprint $table) {
+            //
+        });
     }
 }

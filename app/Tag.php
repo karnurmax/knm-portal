@@ -14,5 +14,5 @@ class Tag extends Model
     public function plugins(){
         return $this->belongsToMany('App\Plugin')->withTimestamps();
     }
-}
+
 }

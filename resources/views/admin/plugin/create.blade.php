@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Edit Post')
+@section('title','Create Plugin')
 
 @push('css')
 <!-- Bootstrap Select Css -->
@@ -12,9 +12,8 @@
 @section('content')
  <div class="container-fluid">
             
-  <form action="{{ route('admin.post.update',$post->id) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('admin.plugin.store') }}" method="POST" enctype="multipart/form-data">
                               @csrf
-                              @method('PUT')
             <!-- #END# Vertical Layout -->
             <!-- Vertical Layout | With Floating Label -->
             <div class="row clearfix">
@@ -22,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            Изменить Пост
+                               ДОБАВИТЬ НОВЫЙ ПЛАГИН
                               
                             </h2>
           
@@ -43,26 +42,24 @@
                            
                                 <div class="form-group form-float">
                                     <div class="form-line">
-            <input type="text" id="title" class="form-control" name="title" value="{{ $post->title }}">
-           <label class="form-label">Название Поста </label>
+            <input type="text" id="title" class="form-control" name="title">
+           <label class="form-label">Название Плагина </label>
                                     </div>
                                 </div>
 
                      <div class="form-group">
-                      <label for="image">Выбранная Картинка</label>
+                      <label for="image">Загрузить картинку</label>
                       <input type="file" name="image">   
-                      <span> {{$post ->image}}</span>
-                      <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image) }}"  style= "width:350px;height:228px "/>
 
-                     </div>            
+                     </div>      
 
-                              
-                  <div class="form-group">
-                    <input type="checkbox" id="publish" class="filled-in" name="status" value="1"
-                    {{ $post->status == true ? 'checked' : '' }} >
-               <label for="publish">Опубликовать </label>
-                  </div>
-                               
+                     <div class="form-group">
+                      <label for="file">Загрузить плагин</label>
+                      <input type="file" name="plugin_file">   
+
+                     </div>       
+
+                            
         
                           
                         </div>
@@ -78,7 +75,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            ИЗМЕНИТЬ КАТЕГОРИИ И ТЭГИ
+                               КАТЕГОРИИ И ТЭГИ
                               
                             </h2>
                    
@@ -92,17 +89,11 @@
            <select name="categories[]" id="category" class="form-control show-tick" data-live-search="true" multiple > 
 
             @foreach($categories as $category)
-            <option
-            @foreach($post->categories as $postCategory) 
-           {{ $postCategory->id == $category->id ? 'selected' : '' }}
+            <option value="{{ $category->id }}"> {{ $category->name }} </option>
 
             @endforeach
 
-             value="{{ $category->id }}"> {{ $category->name }} </option>
-
-            @endforeach
-
-           </select>
+           </select> 
                                     </div>
                                 </div>
 
@@ -115,12 +106,7 @@
            <select name="tags[]" id="tags" class="form-control show-tick" data-live-search="true" multiple > 
 
             @foreach($tags as $tag)
-            <option
-            @foreach($post->tags as $postTag) 
-           {{ $postTag->id == $tag->id ? 'selected' : '' }}
-
-            @endforeach
-             value="{{ $tag->id }}"> {{ $tag->name }} </option>
+            <option value="{{ $tag->id }}"> {{ $tag->name }} </option>
 
             @endforeach
 
@@ -132,7 +118,7 @@
 
                               
 
-        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.post.index') }} "> НАЗАД</a>                        
+        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.category.index') }} "> НАЗАД</a>                        
        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОТПРАВИТЬ</button>
                           
                         </div>
@@ -151,15 +137,14 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            <h2>
-                               ТЕКСТ ПОСТА
+                               ТЕКСТ ПЛАГИНА
                               
                             </h2>
                    
                         </div>
                         <div class="body">
                             
-                        <textarea id="tinymce" name="body">{{ $post->body }}  </textarea>        
+                        <textarea id="tinymce" name="body">  </textarea>        
                             
                         </div>
                     </div>
@@ -173,7 +158,7 @@
             <!-- #END# Multi Column -->
         </div>
 
-@endsection
+@endsection 
 
 
 
@@ -202,7 +187,7 @@
         image_advtab: true
     });
     tinymce.suffix = ".min";
-    tinyMCE.baseURL = '/assets/backend/plugins/tinymce';
+    tinyMCE.baseURL = "/assets/backend/plugins/tinymce";
 });
 
 
