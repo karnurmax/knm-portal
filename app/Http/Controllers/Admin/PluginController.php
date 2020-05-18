@@ -90,7 +90,7 @@ class PluginController extends Controller
           $plugin_file = $request->file('plugin_file');
           if (isset($plugin_file)) {
              
-             // Make Unique Name for Image 
+             // Make Unique Name for plugin
     $currentDate = Carbon::now()->toDateString();
     $plugin_fileName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$plugin_file->getClientOriginalExtension();
   
@@ -170,7 +170,98 @@ class PluginController extends Controller
      */
     public function update(Request $request, Plugin $plugin)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'image' => 'image',
+            'plugin_file' => 'file',
+            'categories' => 'required',
+            'tags' => 'required',
+            'body' => 'required',
+  
+           ]);
+  
+     // Get Form Image
+          $image = $request->file('image');
+          $slug = str_slug($request->title);
+          if (isset($image)) {
+             
+             // Make Unique Name for Image 
+            $currentDate = Carbon::now()->toDateString();
+    $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+  
+  
+          // Check Category Dir is exists
+  
+              if (!Storage::disk('public')->exists('plugins_images')) {
+                 Storage::disk('public')->makeDirectory('plugins_images');
+              }
+
+
+                       // Delete old post image
+        if(Storage::disk('public')->exists('plugins_images/'.$plugin->image)){
+            Storage::disk('public')->delete('plugins_images/'.$plugin->image);
+  
+          }
+  
+  
+              // Resize Image for category and upload
+              $pluginImage = Image::make($image)->resize(1600,1066)->stream();
+              Storage::disk('public')->put('plugins_images/'.$imageName,$pluginImage);
+  
+     }else{
+      $imageName = $plugin->image;
+     }
+
+
+          // Get Form Plugin_file
+          $plugin_file = $request->file('plugin_file');
+          if (isset($plugin_file)) {
+             
+             // Make Unique Name for Plugin
+    $currentDate = Carbon::now()->toDateString();
+    $plugin_fileName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$plugin_file->getClientOriginalExtension();
+  
+  
+          // Check Category Dir is exists
+  
+              if (!Storage::disk('public')->exists('plugins')) {
+                 Storage::disk('public')->makeDirectory('plugins');
+              }
+
+        
+                       // Delete old plugin
+                       if(Storage::disk('public')->exists('plugins/'.$plugin->plugin_file)){
+                        Storage::disk('public')->delete('plugins/'.$plugin->plugin_file);
+              
+                      }
+  
+  
+              //  upload
+              Storage::disk('public')->put('plugins/'.$plugin_fileName,$plugin_file);
+  
+     }else{
+        $plugin_fileName = $plugin->plugin_file;
+     }
+
+     $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
+
+
+     $plugin->user_id = Auth::id();
+     $plugin->title = $request->title;
+     $plugin->slug = $slug;
+     $plugin->image = $imageName;
+     $plugin->body = $request->body;
+     $plugin->plugin_file = $plugin_fileName;
+     $plugin->download_link = $download_link;
+     $plugin->is_approved = true;
+     $plugin->save();
+   
+     $plugin->categories()->sync($request->categories);
+     $plugin->tags()->sync($request->tags);
+      
+  
+  
+    return redirect(route('admin.plugin.index'))->with('successMsg', 'Plugin Updated Successfully');
     }
 
     /**
