@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Create Post')
+@section('title','Create Plugin')
 
 @push('css')
 <!-- Bootstrap Select Css -->
@@ -12,7 +12,7 @@
 @section('content')
  <div class="container-fluid">
             
-  <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('dev.plugin.store') }}" method="POST" enctype="multipart/form-data">
                               @csrf
             <!-- #END# Vertical Layout -->
             <!-- Vertical Layout | With Floating Label -->
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               ДОБАВИТЬ НОВЫЙ ПОСТ
+                               ДОБАВИТЬ НОВЫЙ ПЛАГИН
                               
                             </h2>
           
@@ -43,7 +43,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
             <input type="text" id="title" class="form-control" name="title">
-           <label class="form-label">Название Поста </label>
+           <label class="form-label">Название Плагина </label>
                                     </div>
                                 </div>
 
@@ -51,14 +51,15 @@
                       <label for="image">Загрузить картинку</label>
                       <input type="file" name="image">   
 
-                     </div>            
+                     </div>      
 
-                              
-                  <div class="form-group">
-                    <input type="checkbox" id="publish" class="filled-in" name="status" value="1">
-               <label for="publish">Опубликовать </label>
-                  </div>
-                               
+                     <div class="form-group">
+                      <label for="file">Загрузить плагин</label>
+                      <input type="file" name="plugin_file">   
+
+                     </div>       
+
+                            
         
                           
                         </div>
@@ -117,7 +118,7 @@
 
                               
 
-        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.post.index') }} "> НАЗАД</a>                        
+        <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('dev.plugin.index') }} "> НАЗАД</a>                        
        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОТПРАВИТЬ</button>
                           
                         </div>
@@ -136,7 +137,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               ТЕКСТ ПОСТА
+                               ТЕКСТ ПЛАГИНА
                               
                             </h2>
                    

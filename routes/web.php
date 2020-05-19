@@ -60,6 +60,9 @@ Route::group(
         Route::get('pending/post', 'PostController@pending')->name('post.pending');
         Route::put('post/{id}/approve', 'PostController@approval')->name('post.approve');
 
+        Route::get('pending/plugin', 'PluginController@pending')->name('plugin.pending');
+        Route::put('plugin/{id}/approve', 'PluginController@approval')->name('plugin.approve');
+
         Route::get('/favorite', 'FavoriteController@index')->name('favorite.index');
 
         Route::get('/subscriber', 'SubscriberController@index')->name('subscriber.index');
@@ -103,6 +106,7 @@ Route::group(
         Route::resource('post', 'PostController');
 
 
+
         Route::get('comments/', 'CommentController@index')->name('comment.index');
         Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
     }
@@ -118,6 +122,7 @@ Route::group(
         Route::put('password-update', 'SettingsController@updatePassword')->name('password.update');
 
         Route::resource('post', 'PostController');
+        Route::resource('plugin', 'PluginController');
 
 
         Route::get('comments/', 'CommentController@index')->name('comment.index');

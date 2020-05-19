@@ -16,5 +16,10 @@ class Comment extends Model
 
     }
 
+    public function plugin(){
+        return $this->belongsTo('App\Plugin'); 
+
+    }
+
 
 }

@@ -113,6 +113,15 @@
                         </a>
                     </li>
 
+                    <li class="{{Request::is('admin/pending/plugin') ? 'active' : '' }}">
+                        <a href="{{route('admin.plugin.pending')}}">
+                            <i class="material-icons">library_books</i>
+                            <span>ПЛАГИНЫ НА УТВЕРЖДЕНИИ</span>
+                        </a>
+                    </li>
+
+
+
 
                     <li class="{{Request::is('admin/comments') ? 'active' : '' }}">
                         <a href="{{route('admin.comment.index')}}">
@@ -209,6 +218,8 @@
                         </a>
                     </li>
 
+
+
                     <li class="{{Request::is('author/comments') ? 'active' : '' }}">
                         <a href="{{route('author.comment.index')}}">
                             <i class="material-icons">comment</i>
@@ -257,6 +268,13 @@
                     <span>ПОСТЫ</span>
                 </a>
             </li>
+
+            <li class="{{Request::is('dev/plugin*') ? 'active' : '' }}">
+                        <a href="{{route('dev.plugin.index')}}">
+                            <i class="material-icons">extension</i>
+                            <span>ПЛАГИНЫ</span>
+                        </a>
+                    </li>
 
             <li class="{{Request::is('dev/comments') ? 'active' : '' }}">
                 <a href="{{route('dev.comment.index')}}">

@@ -11,31 +11,26 @@
 @section('content')
  <div class="container-fluid">
             
-   <a href="{{ route('admin.plugin.index') }}" class="btn btn-danger wave-effect" >НАЗАД</a>
+   <a href="{{ route('dev.plugin.index') }}" class="btn btn-danger wave-effect" >НАЗАД</a>
 
  @if($plugin->is_approved == false)
- <button type="button" class="btn btn-success wave-effect pull-right" onclick="approvePlugin({{ $plugin->id }})">
+ <button type="button" class="btn btn-success pull-right">
 <i class="material-icons">done</i>
-<span>УТВЕРДИТЬ</span>
+<span>На утверждении</span>
   </button>
- <form method="POST" action="{{ route('admin.plugin.approve',$plugin->id) }}" id="approval-form" style="display: none;" >
- @csrf
- @method('PUT') 
-
- </form>
-
 
 @else
 
  <button type="button" class="btn btn-success pull-right" disabled>
 <i class="material-icons">done</i>
-<span>УТВЕРЖДЕН</span>
+<span>Утвержден</span>
   </button>
  
  @endif
 
  <br>
  <br>
+
 
             <!-- #END# Vertical Layout -->
             <!-- Vertical Layout | With Floating Label -->

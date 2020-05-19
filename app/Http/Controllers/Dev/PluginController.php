@@ -1,21 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dev;
 
 use Carbon\Carbon;
-use App\Notifications\DevPluginApproved;
-use App\Notifications\NewPluginNotify;
-use Illuminate\Support\Facades\Notification;
-use App\Subscriber;
 use App\Http\Controllers\Controller;
 use App\Plugin;
 use App\Category;
 use App\Tag; 
+use App\User;
+use App\Notifications\NewDevPlugin;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-
 
 class PluginController extends Controller
 {
@@ -25,9 +23,9 @@ class PluginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $plugins = Plugin::latest()->get();
-        return view('admin.plugin.index',compact('plugins'));
+    {      
+        $plugins = Auth::User()->plugins()->latest()->get();
+       return view('dev.plugin.index',compact('plugins'));
     }
 
     /**
@@ -36,10 +34,10 @@ class PluginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {       
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.plugin.create',compact('categories','tags'));
+        return view('dev.plugin.create',compact('categories','tags'));
     }
 
     /**
@@ -120,22 +118,19 @@ class PluginController extends Controller
      $plugin->body = $request->body;
      $plugin->plugin_file = $plugin_fileName;
      $plugin->download_link = $download_link;
-     $plugin->is_approved = true;
+     $plugin->is_approved = false;
      $plugin->save();
    
      $plugin->categories()->attach($request->categories);
      $plugin->tags()->attach($request->tags);
       
-      $subscribers = Subscriber::all();
-      foreach ($subscribers as $subscriber) {
-        Notification::route('mail',$subscriber->email)
-        ->notify(new NewPluginNotify($plugin));
+     $users = User::where('role_id', '1')->get();
+     Notification::send($users, new NewDevPlugin($plugin));
+   
+     return redirect(route('dev.plugin.index'))->with('successMsg', 'Developer Post Inserted Successfully');
      }
   
-  
-    return redirect(route('admin.plugin.index'))->with('successMsg', 'Plugin Inserted Successfully');
-  
-    }
+
 
     /**
      * Display the specified resource.
@@ -144,8 +139,10 @@ class PluginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Plugin $plugin)
-    {
-        return view('admin.plugin.show',compact('plugin'));
+    {      if ($plugin->user_id != Auth::id()) {
+        return redirect()->back();
+       }
+        return view('dev.plugin.show',compact('plugin'));
     }
 
     /**
@@ -156,9 +153,12 @@ class PluginController extends Controller
      */
     public function edit(Plugin $plugin)
     {
-        $categories = Category::all();
-        $tags = Tag::all();
-        return view('admin.plugin.edit',compact('plugin','categories','tags'));
+        if ($plugin->user_id != Auth::id()) {
+            return redirect()->back();
+           }
+             $categories = Category::all();
+             $tags = Tag::all();
+             return view('dev.plugin.edit',compact('plugin','categories','tags'));
     }
 
     /**
@@ -170,6 +170,9 @@ class PluginController extends Controller
      */
     public function update(Request $request, Plugin $plugin)
     {
+        if ($plugin->user_id != Auth::id()) {
+            return redirect()->back();
+           }
         $this->validate($request,[
             'title' => 'required',
             'image' => 'image',
@@ -253,7 +256,7 @@ class PluginController extends Controller
      $plugin->body = $request->body;
      $plugin->plugin_file = $plugin_fileName;
      $plugin->download_link = $download_link;
-     $plugin->is_approved = true;
+     $plugin->is_approved = false;
      $plugin->save();
    
      $plugin->categories()->sync($request->categories);
@@ -261,40 +264,8 @@ class PluginController extends Controller
       
   
   
-    return redirect(route('admin.plugin.index'))->with('successMsg', 'Plugin Updated Successfully');
+    return redirect(route('dev.plugin.index'))->with('successMsg', 'Plugin Updated Successfully');
     }
-
-
-    public function pending(){
-        $plugins = Plugin::where('is_approved',false)->get();
-        return view('admin.plugin.pending',compact('plugins'));
-       }
-
-
-    public function approval($id){
-        $plugin = Plugin::find($id);
-        if ($plugin->is_approved == false) {
-          $plugin->is_approved = true;
-          $plugin->save();
-          $plugin->user->notify(new DevPluginApproved($plugin)); 
-          
-        $subscribers = Subscriber::all();
-         foreach ($subscribers as $subscriber) {
-         Notification::route('mail',$subscriber->email)
-         ->notify(new NewPluginNotify($plugin));
-       }  
-      
-          return redirect(route('admin.plugin.pending'))->with('successMsg', 'Plugin Successfully Approved');
-        }else{
-          return redirect(route('admin.plugin.pending'))->with('successMsg', 'Plugin is Already Approved');
-        }
-    
-      }
-
-
-
-
-    
 
     /**
      * Remove the specified resource from storage.
@@ -303,7 +274,9 @@ class PluginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Plugin $plugin)
-    {
+    {        if ($plugin->user_id != Auth::id()) {
+        return redirect()->back();
+       }
         if (Storage::disk('public')->exists('plugins_images/'.$plugin->image)) {
             Storage::disk('public')->delete('plugins_images/'.$plugin->image);
          }
@@ -316,10 +289,6 @@ class PluginController extends Controller
          $plugin->categories()->detach();
          $plugin->tags()->detach();
          $plugin->delete();
-         return redirect(route('admin.plugin.index'))->with('successMsg', 'Plugin Deleted Successfully');
+         return redirect(route('dev.plugin.index'))->with('successMsg', 'Plugin Deleted Successfully');
     }
 }
-
-
-
-
