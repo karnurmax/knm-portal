@@ -37,7 +37,8 @@ class PostController extends Controller
   public function postByCategory($slug){
  $category = Category::where('slug',$slug)->first();
  $posts = $category->posts()->approved()->published()->get();
- return view('category',compact('category','posts'));
+ $plugins = $category->plugins()->approved()->get();
+ return view('category',compact('category','posts','plugins'));
 
 
   }
@@ -45,7 +46,8 @@ class PostController extends Controller
     public function postByTag($slug){
  $tag = Tag::where('slug',$slug)->first();
  $posts = $tag->posts()->approved()->published()->get();
- return view('tag',compact('tag','posts'));
+ $plugins = $tag->plugins()->approved()->get();
+ return view('tag',compact('tag','plugins','posts'));
 
 
   }

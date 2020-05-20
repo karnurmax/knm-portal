@@ -24,6 +24,9 @@
 
 			<div class="row">
 
+<h1>ПОСТЫ</h1>
+
+
             @if($posts->count()>0)
 
 			@foreach($posts as $post)
@@ -71,6 +74,56 @@
 
 
 @endif
+
+<h1>ПЛАГИНЫ</h1>
+@if($plugins->count()>0)
+
+@foreach($plugins as $plugin)
+
+	<div class="col-lg-4 col-md-6">
+		<div class="card h-100">
+			<div class="single-post post-style-1">
+
+				<div class="blog-image"><img src="{{Storage::disk('public')->url('plugin_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
+
+				<div class="blog-info">
+
+					<h4 class="title"><a href="{{route('plugin.details',$plugin->slug)}}"><b>{{$plugin->title}}</b></a></h4>
+
+					<ul class="post-footer">
+						<li><a href="#"><i class="ion-chatbubble"></i>{{$plugin->plugin_comments->count()}}</a></li>
+						<!--<li><a href="#"><i class="ion-eye"></i>{{ $plugin->view_count }}</a></li>-->
+					</ul>
+
+				</div><!-- blog-info -->
+			</div><!-- single-post -->
+		</div><!-- card -->
+	</div><!-- col-lg-4 col-md-6 -->
+
+
+	@endforeach
+
+@else
+
+<div class="col-lg-12 col-md-6">
+<div class="card h-100">
+  <div class="single-post post-style-1">
+<div class="blog-info">
+
+<h4 class="title">
+<strong> К сожалению, постов не найдено:(</strong>
+</h4>
+
+</div>
+
+  </div>
+
+</div>
+</div>
+
+
+@endif
+
 
    
 

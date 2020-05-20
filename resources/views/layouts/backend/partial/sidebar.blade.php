@@ -130,6 +130,15 @@
                         </a>
                     </li>
 
+                    <li class="{{Request::is('admin/plugin_comments') ? 'active' : '' }}">
+                        <a href="{{route('admin.plugin_comment.index')}}">
+                            <i class="material-icons">comment</i>
+                            <span>ВСЕ КОММЕНТАРИИ ПЛАГИНЫ</span>
+                        </a>
+                    </li>
+
+                    
+
 
                     <li class="{{Request::is('admin/author') ? 'active' : '' }}">
                         <a href="{{route('admin.author.index')}}">
@@ -282,6 +291,14 @@
                     <span>ВСЕ КОММЕНТАРИИ</span>
                 </a>
             </li>
+
+            <li class="{{Request::is('dev/plugin_comments') ? 'active' : '' }}">
+                <a href="{{route('dev.plugin_comment.index')}}">
+                    <i class="material-icons">comment</i>
+                    <span>ВСЕ КОММЕНТАРИИ ПЛАГИНЫ</span>
+                </a>
+            </li>
+
 
             <li class = "header">System</li>
 

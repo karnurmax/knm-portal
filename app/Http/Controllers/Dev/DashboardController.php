@@ -21,10 +21,10 @@ class DashboardController extends Controller
                         ->take(3)->get();
 
         $popular_plugins = $user->plugins()
-        ->withCount('comments')
+        ->withCount('plugin_comments')
         ->orderBy('view_count','desc')
-        ->orderBy('comments_count','desc')
-        ->orderBy('downloads_count','desc')
+        ->orderBy('plugin_comments_count','desc')
+        ->orderBy('download_count','desc')
         ->take(3)->get();
     
         $total_pending_posts = $posts->where('is_approved',false)->count();

@@ -58,6 +58,13 @@ class User extends Authenticatable
 
     }
 
+    public function plugin_comments(){
+        return $this->hasMany ('App\PluginComment'); 
+
+    }
+
+
+
     public function scopeAuthors($query)
     {
         return $query->where('role_id', 2);

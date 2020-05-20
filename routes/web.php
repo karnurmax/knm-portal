@@ -17,8 +17,14 @@ Route::get('/', 'HomeController@index')->name('mainhome');
 Route::get('posts', 'PostController@index')->name('post.index');
 Route::get('post/{slug}', 'PostController@details')->name('post.details');
 
+Route::get('plugins', 'PluginController@index')->name('plugin.index');
+Route::get('plugin/{slug}', 'PluginController@details')->name('plugin.details');
+
 Route::get('/category/{slug}', 'PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}', 'PostController@postByTag')->name('tag.posts');
+
+Route::get('/categoryplugin/{slug}', 'PluginController@pluginByCategory')->name('category.plugins');
+Route::get('/tagplugin/{slug}', 'PluginController@pluginByTag')->name('tag.plugins');
 
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
 
@@ -40,6 +46,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::post('comment/{post}', 'CommentController@store')->name('comment.store');
+    Route::post('plugin_comment/{plugin}', 'PluginCommentController@store')->name('plugin_comment.store');
 });
 
 
@@ -70,6 +77,10 @@ Route::group(
 
         Route::get('comments/', 'CommentController@index')->name('comment.index');
         Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
+
+        Route::get('plugin_comments/', 'PluginCommentController@index')->name('plugin_comment.index');
+        Route::delete('plugin_comments/{id}', 'PluginCommentController@destroy')->name('plugin_comment.destroy');
+
 
         Route::get('author', 'AuthorController@index')->name('author.index');
         Route::delete('author/{id}', 'AuthorController@destroy')->name('author.destroy');
@@ -109,6 +120,10 @@ Route::group(
 
         Route::get('comments/', 'CommentController@index')->name('comment.index');
         Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
+
+        
+        Route::get('plugin_comments/', 'PluginCommentController@index')->name('plugin_comment.index');
+        Route::delete('plugin_comments/{id}', 'PluginCommentController@destroy')->name('plugin_comment.destroy');
     }
 );
 
@@ -127,6 +142,11 @@ Route::group(
 
         Route::get('comments/', 'CommentController@index')->name('comment.index');
         Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
+
+        Route::get('plugin_comments/', 'PluginCommentController@index')->name('plugin_comment.index');
+        Route::delete('plugin_comments/{id}', 'PluginCommentController@destroy')->name('plugin_comment.destroy');
+
+
     }
 );
 

@@ -24,6 +24,20 @@
                     </div>
                 </div>
 
+                <div class="row clearfix">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">playlist_add_check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ВСЕ ПЛАГИНЫ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $plugins->count() }}" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row clearfix">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-light-green hover-expand-effect">
                         <div class="icon">
@@ -35,18 +49,61 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">library_books</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ПЛАГИНЫ НА УТВЕРЖДЕНИИ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $total_pending_plugins }}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                
+
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">person_add</i>
                         </div>
                         <div class="content">
-                            <div class="text">ВСЕ ПРОСМОТРЫ</div>
+                            <div class="text">ВСЕ ПРОСМОТРЫ ПОСТОВ</div>
                             <div class="number count-to" data-from="0" data-to="{{ $all_views }}" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">person_add</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ВСЕ ПРОСМОТРЫ ПЛАГИНОВ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $all_views_plugins }}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">file_download</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ВСЕ ЗАГРУЗКИ ПЛАГИНОВ</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $all_views_plugins }}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- missing all downlads -->
+
+            
+
 
             
             <!-- #END# Widgets -->
@@ -185,6 +242,64 @@
 
 
             </div>
+
+
+
+            <div class="col-xs-12-3 col-sm-12 col-md-8 col-lg-9">
+            <div class="card">
+                        <div class="header">
+                            <h2>ПОПУЛЯРНЫЕ ПЛАГИНЫ</h2>
+                             
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>Список по рангу</th>
+                                            <th>Название</th>
+                                            <th>Просмотры</th>
+                                            <th>Скачивания</th>
+                                            <th>Комментарии </th>
+                                            <th>Утверждение </th>
+                                            <th>Действие </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                      @foreach($popular_plugins as $key=>$plugin)
+                                        <tr>
+                           <td> {{ $key + 1 }}</td> 
+                           <td> {{ str_limit($plugin->title, 30) }} </td>
+                           <td> {{ $plugin->view_count }} </td>
+                           <td> {{ $plugin->download_count }} </td>
+                           <td> {{ $plugin->plugin_comments_count }} </td>
+                           <td>
+                     @if($plugin->is_approved == true)
+                     <span class="label bg-green">Утвержден</span>
+
+                     @else
+                       <span class="label bg-red">На утверждении </span>
+                     @endif
+
+                            </td>
+
+                       <td> <a class="btn btn-sm btn-primary waves-efect" target="_blank" href="{{ route('plugin.details',$plugin->slug) }}">ПРОСМОТРЕТЬ</a>  </td>
+
+
+                                        </tr>
+                       @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> 
+              
+         </div>
+
+
+            </div>
             <!-- #END# Widgets -->
 
 
@@ -207,7 +322,8 @@
                                             <th>Список по рангу</th>
                                             <th>Имя</th>
                                             <th>Посты</th>
-                                            <th>Комментарии</th>
+                                            <th>Комментарии постов</th>
+                                            <th>Комментарии плагинов</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -220,6 +336,7 @@
                                     <td> {{ $author->name }}  </td>
                                     <td> {{ $author->posts_count  }}  </td>
                                     <td> {{ $author->comments_count  }}  </td>
+                                    <td> {{ $author->plugin_comments_count  }}  </td>
 
  
                                         </tr>
@@ -248,8 +365,7 @@
                                         <tr>
                                             <th>Список по рангу</th>
                                             <th>Имя</th>
-                                            <th>Посты</th>
-                                            <th>Комментарии</th>
+                                            <th>Плагины</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -260,10 +376,8 @@
 
                                     <td> {{ $key + 1 }} </td>
                                     <td> {{ $dev->name }}  </td>
-                                    <td> {{ $dev->posts_count  }}  </td>
-                                    <td> {{ $dev->comments_count  }}  </td>
+                                    <td> {{ $dev->plugins_count}}  </td>
 
- 
                                         </tr>
                                    @endforeach     
                                     </tbody>

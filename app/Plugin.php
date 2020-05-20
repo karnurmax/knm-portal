@@ -17,5 +17,20 @@ class Plugin extends Model
 
     public function tags(){
     	return $this->belongsToMany('App\Tag')->withTimestamps();
-    }   
+    }  
+    
+    public function plugin_comments(){
+    	return $this->hasMany('App\PluginComment');
+    }  
+
+    public function scopeApproved($query)
+    {
+        return $query->where('is_approved', 1);
+    }
+
+
+
+
+
+
 }
