@@ -7,6 +7,7 @@ use App\Plugin;
 use Illuminate\Support\Facades\Session;
 use App\Category;
 use App\Tag;
+use Illuminate\Support\Facades\Storage;
 
 class PluginController extends Controller
 {
@@ -16,7 +17,10 @@ class PluginController extends Controller
    	return view('plugins',compact('plugins'));
    }
 
-
+   public function download_file($slug){
+      $plugin = Plugin::where('slug',$slug)->first();
+      return Storage::download('/assets/app/plugins/dsadsadsad-2020-05-19-5ec331ac8db42.pdf');
+   }
 
 
     public function details($slug){
@@ -43,7 +47,7 @@ class PluginController extends Controller
 
   }
 
-    public function pluginByTag($slug){
+   public function pluginByTag($slug){
  $tag = Tag::where('slug',$slug)->first();
  $plugins = $tag->plugins()->approved()->get();
  $posts = $tag->posts()->approved()->published()->get();
