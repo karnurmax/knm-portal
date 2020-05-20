@@ -19,6 +19,8 @@ Route::get('post/{slug}', 'PostController@details')->name('post.details');
 
 Route::get('plugins', 'PluginController@index')->name('plugin.index');
 Route::get('plugin/{slug}', 'PluginController@details')->name('plugin.details');
+Route::get('plugin/download/{slug}', 'PluginController@download_file')->name('plugin.download_file');
+
 
 Route::get('/category/{slug}', 'PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}', 'PostController@postByTag')->name('tag.posts');

@@ -54,6 +54,9 @@
 							<h3 class="title"><a href="#"><b>{{$plugin->title}}</b></a></h3>
 
 							<p class  = "para">{!! html_entity_decode($plugin->body) !!}</p>
+
+							<h5 class="download_link"><a href="{{route('plugin.download_file',$plugin->slug)}}"><b>Скачать плагин</b></a></h5>
+							
 							
                             <ul class="tags">
 

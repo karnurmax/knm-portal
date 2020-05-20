@@ -99,16 +99,16 @@ class PluginController extends Controller
                  Storage::disk('public')->makeDirectory('plugins');
               }
   
-  
-              //  upload
-              Storage::disk('public')->put('plugins/'.$plugin_fileName,$plugin_file);
+              $download_link = Storage::disk("public")->putFileAs(
+                'plugins', $request->file('plugin_file'), $plugin_fileName
+            );
+            
   
      }else{
       $plugin_fileName = "default_plugin.zip";
      }
 
-     $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
-
+    
   
      $plugin = new Plugin();
      $plugin->user_id = Auth::id();
