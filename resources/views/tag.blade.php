@@ -53,19 +53,20 @@
                 @else
 
 				<div class="col-lg-4 col-md-6">
-					<div class="card h-100">
-						<div class="single-post post-style-1">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+ <div class="blog-info">
 
-                        <div class="blog-info">
+ <h4 class="title">
+<strong> К сожалению, пока нет постов :(</strong>
+   </h4>
 
-                        <h4 class="title"><a href="{{route('post.details',$post->slug)}}"><b>{{$post->title}}</b></a></h4>
-                        <strong>К сожалению, пока нет постов</strong>
+                    </div>
 
                         </div>
 
-                        </div>
-                        </div>
-                        </div>
+                      </div>
+                    </div>
 
                 @endif
 
@@ -79,7 +80,7 @@
 		<div class="card h-100">
 			<div class="single-post post-style-1">
 
-				<div class="blog-image"><img src="{{Storage::disk('public')->url('plugin_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
+				<div class="blog-image"><img src="{{Storage::disk('public')->url('plugins_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
 
 				<div class="blog-info">
 
@@ -99,21 +100,21 @@
 
 	@else
 
-	<div class="col-lg-4 col-md-6">
-		<div class="card h-100">
-			<div class="single-post post-style-1">
+ <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+ <div class="blog-info">
 
-			<div class="blog-info">
+ <h4 class="title">
+<strong> К сожалению, пока нет плагинов :(</strong>
+   </h4>
 
-			<h4 class="title"><a href="{{route('plugin.details',$plugin->slug)}}"><b>{{$plugin->title}}</b></a></h4>
-			<strong>К сожалению, пока нет плагинов</strong>
+                    </div>
 
-			</div>
+                        </div>
 
-			</div>
-			</div>
-			</div>
-
+                      </div>
+                    </div>
 	@endif
 
 

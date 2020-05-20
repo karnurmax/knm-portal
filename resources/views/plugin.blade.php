@@ -15,7 +15,7 @@
  height: 100%;
  width: 100%;
 
- background-image: url({{ Storage::disk('public')->url('plugin_images/'.$plugin->image)  }});
+ background-image: url({{ Storage::disk('public')->url('plugins_images/'.$plugin->image)  }});
  background-size: cover;
 	}
     .favorite_post{
@@ -151,7 +151,7 @@
 					<div class="card h-100">
 						<div class="single-post post-style-1">
 
-							<div class="blog-image"><img src="{{Storage::disk('public')->url('plugin_images/'.$randomplugin->image)}}" alt="{{$randomplugin->title}}">
+							<div class="blog-image"><img src="{{Storage::disk('public')->url('plugins_images/'.$randomplugin->image)}}" alt="{{$randomplugin->title}}">
                             </div>
 
 							<div class="blog-info">

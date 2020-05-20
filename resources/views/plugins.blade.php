@@ -30,7 +30,7 @@
 					<div class="card h-100">
 						<div class="single-post post-style-1">
 
-							<div class="blog-image"><img src="{{Storage::disk('public')->url('plugin_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
+							<div class="blog-image"><img src="{{Storage::disk('public')->url('plugins_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
 
 							<div class="blog-info">
 

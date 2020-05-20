@@ -7,7 +7,7 @@
 			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
 
 			<ul class="main-menu visible-on-click" id="main-menu">
-				<li><a href="{{route('mainhome')}}">Форум</a></li>
+				<li><a href="{{route('mainhome')}}">Портал</a></li>
 				<li><a href="{{route('post.index')}}">Посты</a></li>
 				<li><a href="{{route('plugin.index')}}">Плагины</a></li>
 				@guest
