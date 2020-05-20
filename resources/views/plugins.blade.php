@@ -16,7 +16,7 @@
 @section('content')
 
 <div class="slider display-table center-text">
-		<h1 class="title display-table-cell"><b>ВСЕ ПОСТЫ</b></h1>
+		<h1 class="title display-table-cell"><b>ВСЕ ПЛАГИНЫ</b></h1>
 	</div><!-- slider -->
 
 	<section class="blog-area section">

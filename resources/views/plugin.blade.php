@@ -156,7 +156,7 @@
 								<h4 class="title"><a href="{{route('plugin.details',$randomplugin->slug)}}"><b>{{$randomplugin->title}}</b></a></h4>
 
 								<ul class="post-footer">
-									<li><a href="#"><i class="ion-chatbubble"></i>{{$plugin->plugin_comments->count()}}</a></li>
+									<li><a href="#"><i class="ion-chatbubble"></i>{{$randomplugin->plugin_comments->count()}}</a></li>
 									<!-- <li><a href="#"><i class="ion-eye"></i>{{ $randomplugin->view_count }}</a></li>-->
 								</ul>
 
@@ -195,13 +195,13 @@
                        <p> Для того,чтобы оставить комментарий, нужно войти как пользователь <a href="{{ route('login')}}">ВОЙТИ </a> </p>
                     @else
                      
-                          <form method="post" action=" {{ route('plugin_comment.store',$plugin->id) }}">
+                          <form method="POST" action=" {{ route('plugin_comment.store',$plugin->id) }}">
                           	@csrf
 
 							<div class="row"> 
 
 								<div class="col-sm-12">
-									<textarea name="comment" rows="2" class="text-area-messge form-control"
+									<textarea name="plugin_comment" rows="2" class="text-area-messge form-control"
 										placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
 								</div><!-- col-sm-12 -->
 								<div class="col-sm-12">
@@ -224,7 +224,7 @@
              @foreach($plugin->plugin_comments as $plugin_comment)
 					<div class="commnets-area ">
 
-						<div class="comment">
+						<div class="plugin_comment">
 
 							<div class="post-info">
 

@@ -80,7 +80,7 @@
         <div class="media">
                  <div class="media-right">
  <a target="/blank" href="{{ route('plugin.details',$plugin_comment->plugin->slug ) }}">
-  <img class="media-object" src="{{ Storage::disk('public')->url('plugin_images/'.$comment->plugin->image) }}" height="64" width="64">
+  <img class="media-object" src="{{ Storage::disk('public')->url('plugin_images/'.$plugin_comment->plugin->image) }}" height="64" width="64">
   </a>
 
 </div>
@@ -102,7 +102,7 @@
 
 
         <td> 
- <button class="btn btn-danger waves-effect" type="button" onclick="deletePluginComment({{ $comment->id }})">
+ <button class="btn btn-danger waves-effect" type="button" onclick="deletePluginComment({{ $plugin_comment->id }})">
                 <i class="material-icons">delete</i>
               </button>
 
