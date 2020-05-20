@@ -19,7 +19,7 @@ class PluginController extends Controller
 
    public function download_file($slug){
       $plugin = Plugin::where('slug',$slug)->first();
-      return Storage::download('/assets/app/plugins/dsadsadsad-2020-05-19-5ec331ac8db42.pdf');
+      return Storage::download($plugin->download_link);
    }
 
 
