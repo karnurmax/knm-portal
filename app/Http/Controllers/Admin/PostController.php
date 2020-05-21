@@ -189,7 +189,6 @@ class PostController extends Controller
    }
 
   
-  $post->user_id = Auth::id();
   $post->title = $request->title;
   $post->slug = $slug;
   $post->image = $imageName;
@@ -199,7 +198,7 @@ class PostController extends Controller
   }else{
     $post->status = false;
   }
-  $post->is_approved = true;
+
   $post->save();
 
   $post->categories()->sync($request->categories);

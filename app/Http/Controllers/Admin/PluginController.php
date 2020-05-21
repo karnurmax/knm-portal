@@ -246,14 +246,13 @@ class PluginController extends Controller
      $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
 
 
-     $plugin->user_id = Auth::id();
+
      $plugin->title = $request->title;
      $plugin->slug = $slug;
      $plugin->image = $imageName;
      $plugin->body = $request->body;
      $plugin->plugin_file = $plugin_fileName;
      $plugin->download_link = $download_link;
-     $plugin->is_approved = true;
      $plugin->save();
    
      $plugin->categories()->sync($request->categories);
