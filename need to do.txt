@@ -1,0 +1,6 @@
+1. correct top 10 active authors
+role_id,2,3 admin/dashboard controller
+2. correct download count in  admin/dashboard controller
+3. плагини и посты in tag and category blades
+4. dowload link bootstrap plugin.blade
+

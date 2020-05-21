@@ -18,7 +18,7 @@
 <div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>{{$tag->name}}</b></h1>
 	</div><!-- slider -->
-
+	<div class="container">	<h1>ПОСТЫ</h1>	</div>
 	<section class="blog-area section">
 		<div class="container">
 
@@ -71,7 +71,7 @@
                 @endif
 
 
-
+				<div class="container">	<h1>плагины</h1>	</div>
 				@if($plugins->count()>0)
 
 @foreach($plugins as $plugin)

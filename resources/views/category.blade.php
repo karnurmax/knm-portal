@@ -18,13 +18,13 @@
 <div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>{{$category->name}}</b></h1>
 	</div><!-- slider -->
+	<div class="container">	<h1>ПОСТЫ</h1>	</div>
 
 	<section class="blog-area section">
 		<div class="container">
 
 			<div class="row">
 
-<h1>ПОСТЫ</h1>
 
 
             @if($posts->count()>0)
@@ -55,13 +55,13 @@
 				@endforeach
 
 @else
-
+<h4 class="title">
 <div class="col-lg-12 col-md-6">
 		  <div class="card h-100">
 			  <div class="single-post post-style-1">
 <div class="blog-info">
 
-<h4 class="title">
+
 <strong> К сожалению, постов не найдено:(</strong>
 </h4>
 
@@ -75,7 +75,7 @@
 
 @endif
 
-<h1>ПЛАГИНЫ</h1>
+<div class="container">	<h1>плагины</h1>	</div>
 @if($plugins->count()>0)
 
 @foreach($plugins as $plugin)
