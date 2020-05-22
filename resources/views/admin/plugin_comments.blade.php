@@ -77,7 +77,7 @@
         <div class="media">
                  <div class="media-right">
  <a target="/blank" href="{{ route('plugin.details',$plugin_comment->plugin->slug ) }}">
-  <img class="media-object" src="{{ Storage::disk('public')->url('plugin_images/'.$plugin_comment->plugin->image) }}" height="64" width="64">
+  <img class="media-object" src="{{ Storage::disk('public')->url('plugins_images/'.$plugin_comment->plugin->image) }}" height="64" width="64">
   </a>
 
 </div>
