@@ -103,13 +103,11 @@ class PluginController extends Controller
   
   
               //  upload
-              Storage::disk('public')->put('plugins/'.$plugin_fileName,$plugin_file);
+              $download_link = Storage::disk('public')->putFileAs('plugins',$request->file('plugin_file'),$plugin_fileName);
   
      }else{
       $plugin_fileName = "default_plugin.zip";
      }
-
-     $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
 
   
      $plugin = new Plugin();
@@ -237,22 +235,24 @@ class PluginController extends Controller
   
   
               //  upload
-              Storage::disk('public')->put('plugins/'.$plugin_fileName,$plugin_file);
-  
+              $download_link = Storage::disk('public')->putFileAs('plugins',$request->file('plugin_file'),$plugin_fileName);
+
      }else{
         $plugin_fileName = $plugin->plugin_file;
+        $download_link = $plugin->download_link;
+
      }
 
-     $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
-
-
+    
 
      $plugin->title = $request->title;
      $plugin->slug = $slug;
      $plugin->image = $imageName;
+     $plugin->download_link = $download_link;
      $plugin->body = $request->body;
      $plugin->plugin_file = $plugin_fileName;
-     $plugin->download_link = $download_link;
+     
+
      $plugin->save();
    
      $plugin->categories()->sync($request->categories);
