@@ -99,9 +99,7 @@ class PluginController extends Controller
                  Storage::disk('public')->makeDirectory('plugins');
               }
   
-              $download_link = Storage::disk("public")->putFileAs(
-                'plugins', $request->file('plugin_file'), $plugin_fileName
-            );
+              $download_link = Storage::disk('public')->putFileAs('plugins',$request->file('plugin_file'),$plugin_fileName);
             
   
      }else{
@@ -240,13 +238,14 @@ class PluginController extends Controller
   
   
               //  upload
-              Storage::disk('public')->put('plugins/'.$plugin_fileName,$plugin_file);
+              $download_link = Storage::disk('public')->putFileAs('plugins',$request->file('plugin_file'),$plugin_fileName);
   
      }else{
         $plugin_fileName = $plugin->plugin_file;
+        $download_link = $plugin->download_link;
      }
 
-     $download_link = asset('plugins/'.$plugin_fileName,$plugin_file);
+
 
 
      $plugin->user_id = Auth::id();
