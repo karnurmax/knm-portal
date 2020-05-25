@@ -11,14 +11,20 @@
 
 
 
+
 @endpush
 
 @section('content')
 
 <div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>{{$category->name}}</b></h1>
+	
+	
 	</div><!-- slider -->
-	<div class="container">	<h1>ПОСТЫ</h1>	</div>
+
+	<div style="font-size:50px; position:absolute;color:red; margin-right: 50%;">Посты</div>
+
+
 
 	<section class="blog-area section">
 		<div class="container">
@@ -75,14 +81,26 @@
 
 @endif
 
-<div class="container">	<h1>плагины</h1>	</div>
+</div>
+
+
+
+
+
+
+
+
+<div style="font-size:50px; position:absolute;color:red; margin-left: -15%;"> Плагины </div>
 @if($plugins->count()>0)
 
 @foreach($plugins as $plugin)
 
 	<div class="col-lg-4 col-md-6">
+
 		<div class="card h-100">
+
 			<div class="single-post post-style-1">
+
 
 				<div class="blog-image"><img src="{{Storage::disk('public')->url('plugins_images/'.$plugin->image)}}" alt="{{$plugin->title}}"></div>
 
