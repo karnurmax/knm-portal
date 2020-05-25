@@ -127,10 +127,19 @@
                                     </div>
                                     <div class="col-lg-2 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
-                                           <select name = "role_id" class = "form-control">
+                                           <select class="selectpicker" name = "role_id">
                                            <option value = "2">Клиент</option>
-                                           <option value = "3">Программист</option>
+                                            <option value = "3">Программист</option>
+
                                             </select>
+
+
+                                          <!--    <select class = "form-control" name = "role_id" >
+                                            <option value = "2">Клиент</option>
+                                           <option value = "3">Программист</option>
+
+                                           </select> -->
+
 
             
                                         </div>

@@ -119,17 +119,26 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="name">Изменить позицию</label>
                                     </div>
                                     <div class="col-lg-2 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
-                                           <select name = "role_id" class = "form-control">
+
+
+                                           <select class="selectpicker" name = "role_id">
+                                            <option value = "3">Программист</option>
+                                            <option value = "2">Клиент</option>
+                                            </select>
+
+
+                                          <!--    <select class = "form-control" name = "role_id" >
                                            <option value = "3">Программист</option>
                                            <option value = "2">Клиент</option>
-
-                                            </select>
+                                           </select> -->
 
             
                                         </div>
@@ -147,7 +156,7 @@
                                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">ОБНОВИТЬ</button>
                                     </div>
                                 </div>
-                            </form>
+                            </f orm>
                         </div>
                     </div>
                 </div>
