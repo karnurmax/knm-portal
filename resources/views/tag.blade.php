@@ -18,7 +18,10 @@
 <div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>{{$tag->name}}</b></h1>
 	</div><!-- slider -->
-	<div style="font-size:50px; position:absolute;color:red; margin-left: -15%;"> Посты </div>
+
+	<div  class="container-fluid" style="font-size:50px; width:1000px; text-align: center; color:red; "> Посты </div>
+
+
 	<section class="blog-area section">
 		<div class="container">
 
@@ -71,7 +74,9 @@
                 @endif
 
 
-				<div style="font-size:50px; position:absolute;color:red; margin-left: -15%;"> Плагины </div>
+				<div  class="container-fluid"style="font-size:50px;text-align: center; width:1000px; color:red; clear:both; "> Плагины </div>
+
+
 				@if($plugins->count()>0)
 
 @foreach($plugins as $plugin)

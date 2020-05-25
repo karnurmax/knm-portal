@@ -22,9 +22,7 @@
 	
 	</div><!-- slider -->
 
-	<div style="font-size:50px; position:absolute;color:red; margin-right: 50%;">Посты</div>
-
-
+	<div  class="container-fluid" style="font-size:50px; width:1000px;text-align: center; color:red; "> Посты </div>
 
 	<section class="blog-area section">
 		<div class="container">
@@ -90,7 +88,7 @@
 
 
 
-<div style="font-size:50px; position:absolute;color:red; margin-left: -15%;"> Плагины </div>
+<div  class = "container-fluid"  style="font-size:50px; text-align: center;width:1000px; color:red; clear:both; "> Плагины </div>
 @if($plugins->count()>0)
 
 @foreach($plugins as $plugin)
