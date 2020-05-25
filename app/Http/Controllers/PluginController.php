@@ -19,6 +19,7 @@ class PluginController extends Controller
 
    public function download_file($slug){
       $plugin = Plugin::where('slug',$slug)->first();
+      $plugin->increment('download_count');
       return Storage::download("/public/$plugin->download_link");
    }
 

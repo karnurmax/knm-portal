@@ -33,8 +33,10 @@ class DashboardController extends Controller
 	   $total_pending_plugins = Plugin::where('is_approved',false)->count();
 	   $all_views = Post::sum('view_count');
 	   $all_views_plugins = Plugin::sum('view_count');
+	   $all_plugins_downloads = Plugin::sum('download_count');
 
 	   //missing all downloads
+
 	   $author_count = User::where('role_id',2)->count();
 	   $dev_count = User::where('role_id',3)->count();
        $new_authors_today = User::where('role_id',2)
@@ -42,7 +44,7 @@ class DashboardController extends Controller
 	   $new_devs_today = User::where('role_id',3)
        						   ->whereDate('created_at',Carbon::today())->count();
 
-       $active_authors = User::where('role_id',2,3)
+       $active_authors = User::whereIn('role_id', [ 2, 3])  
        						->withCount('posts')
 							->withCount('comments')	
 							->withCount('plugin_comments')	
@@ -50,7 +52,8 @@ class DashboardController extends Controller
 							->orderBy('comments_count','desc')
 							->orderBy('plugin_comments_count','desc')
 							->take(10)->get();
-							   
+												 
+						 
 		$active_devs = User::where('role_id',3)
 							   ->withCount('plugins')
 							   ->orderBy('plugins_count','desc')
@@ -62,6 +65,6 @@ class DashboardController extends Controller
 
 		return view('admin.dashboard',compact('posts','popular_posts','total_pending_posts','all_views','author_count',
 		'dev_count','new_authors_today','new_devs_today','active_authors','active_devs','category_count','tag_count',
-		'plugins','popular_plugins','total_pending_plugins','all_views_plugins'));
+		'plugins','popular_plugins','total_pending_plugins','all_views_plugins', 'all_plugins_downloads'));
     }
 }
